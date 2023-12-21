@@ -99,6 +99,200 @@
           }
         }
       }
+    },
+    "ZAM_Controller": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/zam-controller",
+      "sourceRoot": "projects/zam-controller/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/zam-controller",
+            "index": "projects/zam-controller/src/index.html",
+            "main": "projects/zam-controller/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/zam-controller/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/zam-controller/src/favicon.ico",
+              "projects/zam-controller/src/assets"
+            ],
+            "styles": [
+              "projects/zam-controller/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ZAM_Controller:build:production"
+            },
+            "development": {
+              "browserTarget": "ZAM_Controller:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ZAM_Controller:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/zam-controller/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/zam-controller/src/favicon.ico",
+              "projects/zam-controller/src/assets"
+            ],
+            "styles": [
+              "projects/zam-controller/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ZAM_Viewer": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/zam-viewer",
+      "sourceRoot": "projects/zam-viewer/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/zam-viewer",
+            "index": "projects/zam-viewer/src/index.html",
+            "main": "projects/zam-viewer/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/zam-viewer/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/zam-viewer/src/favicon.ico",
+              "projects/zam-viewer/src/assets"
+            ],
+            "styles": [
+              "projects/zam-viewer/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ZAM_Viewer:build:production"
+            },
+            "development": {
+              "browserTarget": "ZAM_Viewer:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ZAM_Viewer:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/zam-viewer/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/zam-viewer/src/favicon.ico",
+              "projects/zam-viewer/src/assets"
+            ],
+            "styles": [
+              "projects/zam-viewer/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   }
 }
