@@ -224,7 +224,9 @@
               "projects/zam-viewer/src/assets"
             ],
             "styles": [
-              "projects/zam-viewer/src/styles.scss"
+              "projects/zam-viewer/src/styles.scss",
+              "./node_modules/@videogular/ngx-videogular/fonts/videogular.css",
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -294,5 +296,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
