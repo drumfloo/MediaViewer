@@ -8,16 +8,8 @@ import { Component, ViewChild } from '@angular/core';
 export class AppComponent {
   title = 'ZAM_Viewer';
 
-  container = document.querySelector("#player")
   
 
-  // hideMouse(){
-  //   document.body.requestPointerLock();
-  // }
-
-  // ngOnInit(){
-  //   this.hideMouse()
-  // }
 }
 
 
