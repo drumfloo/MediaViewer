@@ -1,1 +1,26 @@
-<p>grid-content works!</p>
+<div class="grid-container">
+    <div class="card-container" *ngFor="let site of sites" style="margin:2em">
+      <mat-card (click)=onCardClick(site[1]) matRipple class="clickable">
+        <!-- [routerLink]="site.url" for clickable mat-card -->
+        <mat-card-content>
+          <div class="header-container">
+            <h2>{{ site[0] }}</h2>
+          </div>
+          <div class="subheader-container">
+            <h5>Site information here... ajkdklajdioj oijflkjdslkf</h5>
+         
+          </div>
+          <div class="linked-button-container">
+            <a href="{{ site[1] }}" target="_blank" rel="noopener"><!-- [name]="site.name" -->
+              <button mat-flat-button color="primary">Play</button>
+            </a>
+          </div>
+          <!-- <div class="delete-button-container">
+            <button (click)="deleteCard(site)" mat-mini-fab mat-mini-fab color="warn" aria-label="delete button">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div> -->
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

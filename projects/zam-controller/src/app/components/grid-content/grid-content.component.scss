@@ -1,0 +1,40 @@
+
+.grid-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    flex-wrap: wrap;  
+  }
+  
+  .clickable{
+  
+  }
+  
+  .card-container.mat-card{
+    padding: 2px;
+    margin: 2px;  
+  }
+  
+  .card-container:hover{
+    box-shadow: -1px 10px 29px 0px rgb(174, 169, 169);
+  }
+  
+  // delete button
+  .delete-button-container{
+    transform: scale(0.75);
+    display: inline-block;  
+    float: right;  
+  }
+  
+  
+  // link button
+  .linked-button-container{
+    display: inline-block;
+  }
+  
+  
+  
+  // mat-grid-tile {
+  //     background: lightblue;
+  //   }
