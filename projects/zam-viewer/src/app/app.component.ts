@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, HostBinding, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +8,22 @@ import { Component, ViewChild } from '@angular/core';
 export class AppComponent {
   title = 'ZAM_Viewer';
 
-  
+  @HostBinding("style.--pointer-style")
+  public cursor: 'pointer' | 'none' = 'pointer';
 
+
+  noCursor(yesOrNo: boolean){
+    if (yesOrNo){
+     document.getElementById("video-player-wrapper")!.style.cursor = "none";
+    
+  
+    }
+
+  }
 }
+
+
+
 
 
 

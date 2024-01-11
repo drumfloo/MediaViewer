@@ -11,8 +11,7 @@ declare var require: any;
 
 export class GridContentComponent {
 
-  public sites: any[] = [] 
-  
+  public sites: any[] = []  
 
   public ngOnInit(): void{
     this.fetchData();

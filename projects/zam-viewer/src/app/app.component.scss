@@ -1,6 +1,9 @@
-.video-player-wrapper {
-    cursor:none;
-    
+:root {
+    --pointer-style: pointer;
+}
+
+::ng-deep.vg-overlay-play {
+    cursor: var(--pointer-style) !important;
 }
 
 .player{
