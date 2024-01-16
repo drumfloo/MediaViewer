@@ -2,11 +2,37 @@
   <vg-player class="player">
     <vg-overlay-play></vg-overlay-play>
     <vg-buffering></vg-buffering>
-    <!-- <vg-scrub-bar>
+    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" (play)="cursor = 'none'" (pause)="cursor = 'pointer'" autoplay="true" type="video/mp4" crossorigin>
+      <!-- <source src="../assets/Wochen-Meeting Team IT-SeS-20210823_130620-Besprechungsaufzeichnung.mp4"> -->
+      <source src="https://zimmergroup.sharepoint.com/:v:/r/sites/Marketing-Web/Communication/02_Videos/07_Videowall/2022_Motek_Film_%23SEN.mp4?csf=1&web=1&e=GBcA8d" type="video/mp4" type="video/mp4">
+    </video>
+  </vg-player>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+<div id="video-player-wrapper" >
+  <vg-player class="player">
+    <vg-overlay-play></vg-overlay-play>
+    <vg-buffering></vg-buffering>
+    <vg-scrub-bar>
       <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
       <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-    </vg-scrub-bar> -->
-    <!-- <vg-controls>
+    </vg-scrub-bar>
+    <vg-controls>
       <vg-play-pause></vg-play-pause>
       <vg-playback-button></vg-playback-button>
       <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
@@ -17,16 +43,17 @@
       <vg-mute></vg-mute>
       <vg-volume></vg-volume>
       <vg-fullscreen></vg-fullscreen>
-    </vg-controls> -->
-    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" (play)="cursor = 'none'" (pause)="cursor = 'pointer'" crossorigin>
-      <source src="../assets/Wochen-Meeting Team IT-SeS-20210823_130620-Besprechungsaufzeichnung.mp4">
-      <!-- <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+    </vg-controls>
+    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" (play)="cursor = 'none'" (pause)="cursor = 'pointer'" autoplay="true" type="video/mp4" crossorigin>
+      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
       <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
-      <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm"> -->
-      <!-- <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
-        srclang="en" default> -->
-      <!-- <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt"
-        srclang="es"> -->
+      <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm"> 
+      <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
+        srclang="en" default>
+      <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt"
+        srclang="es">
     </video>
   </vg-player>
-</div>
+</div> -->
+
+

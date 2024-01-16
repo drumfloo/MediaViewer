@@ -12,14 +12,8 @@ export class AppComponent {
   public cursor: 'pointer' | 'none' = 'pointer';
 
 
-  noCursor(yesOrNo: boolean){
-    if (yesOrNo){
-     document.getElementById("video-player-wrapper")!.style.cursor = "none";
-    
-  
-    }
 
-  }
+  
 }
 
 
