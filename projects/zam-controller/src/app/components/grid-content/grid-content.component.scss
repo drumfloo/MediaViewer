@@ -4,30 +4,51 @@
     align-items: center;
     justify-content: center;
     margin: 30px;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;   
+    border: 1px solid #0077c8; 
   }
-
   
   .card-container.mat-card{
     padding: 2px;
-    margin: 2px;  
-  }
+    margin: 2px;    
+  } 
   
+  .card-container {
+    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier();
+  }
+
   .card-container:hover{
-    box-shadow: -1px 10px 29px 0px rgb(174, 169, 169);
+    transition-duration: 0s;
+    //box-shadow: -1px 10px 29px 0px rgb(174, 169, 169);
+    box-shadow: -1px 10px 29px 0px #014370;
+    border: 1px solid #3c92cb;
+    
+    .clickable{
+      color: rgb(57, 54, 54);
+      margin: -1px; 
+    }
+
   }
   
-  // delete button
-  .delete-button-container{
-    transform: scale(0.75);
-    display: inline-block;  
-    float: right;  
+  .clickable{
+    color: white ; //rgb(105,105,105);  // 213,213,213   245,249,254   154,154,154
+    background-color: rgb(105,105,105); //  rgb(105,105,105); //rgb(200,233,245);
+    border: 1px solid #0077c8;    
   }
   
-  
-  // link button
-  .linked-button-container{
-    display: inline-block;
-  }
+
+    // delete button
+  // .delete-button-container{
+  //   transform: scale(0.75);
+  //   display: inline-block;  
+  //   float: right;  
+  // }
+
+
+  // play button
+  // .linked-button-container{
+  //   display: inline-block;
+  // }
   
   

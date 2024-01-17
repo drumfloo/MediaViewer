@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 export class ToolbarComponent {
 
-  banner: string = "Collection"
+  banner: string = "ZAM-Controller"
 }
