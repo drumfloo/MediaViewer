@@ -1,7 +1,9 @@
-<div class="grid-container">
+  <div class="grid-container">
+    <div class="background-image"></div>
     <div class="card-container" *ngFor="let site of sites" style="margin:2em">
       <mat-card (click)=onCardClick(site[1]) matRipple class="clickable">
         <!-- [routerLink]="site.url" for clickable mat-card -->
+
         <mat-card-content>
           <div class="header-container">
             <h2>{{ site[0] }}</h2>
@@ -24,3 +26,4 @@
       </mat-card>
     </div>
   </div>
+<!-- </div> -->

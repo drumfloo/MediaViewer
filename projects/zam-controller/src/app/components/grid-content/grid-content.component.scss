@@ -1,16 +1,33 @@
 
 .grid-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px;
-    flex-wrap: wrap;   
-    border: 1px solid #0077c8; 
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  flex-wrap: wrap;   
+  border: 1px solid #0077c8;
+}
+
+.background-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../../../assets/ZimmerLogoBluecutout.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 30%;
+    background-position: center;
+    //z-index: 0;
+    filter: brightness(2) blur(15px);
+    
+}
   
   .card-container.mat-card{
     padding: 2px;
-    margin: 2px;    
+    margin: 2px;
   } 
   
   .card-container {

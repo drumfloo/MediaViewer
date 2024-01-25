@@ -10,13 +10,11 @@
     ::-webkit-scrollbar {
         display: none;
       }
-    
 }
 
-.child {
+.child  {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    height: 95%; // 100% lässt border verschwinden ??
-        
+    height: 95%; // 100% lässt border verschwinden ?? 
 }
