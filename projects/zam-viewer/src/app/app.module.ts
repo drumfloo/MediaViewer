@@ -10,6 +10,7 @@ import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';
 import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';
 
 import { HttpClientModule } from '@angular/common/http';
+import { VgMediaElement } from '@videogular/ngx-videogular/core';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     VgOverlayPlayModule,
     VgBufferingModule,
     HttpClientModule,
+    VG
   ],
   providers: [],
   bootstrap: [AppComponent]
