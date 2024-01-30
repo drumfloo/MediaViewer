@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ZAM:build:production"
+              "buildTarget": "ZAM:build:production"
             },
             "development": {
-              "browserTarget": "ZAM:build:development"
+              "buildTarget": "ZAM:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ZAM:build"
+            "buildTarget": "ZAM:build"
           }
         },
         "test": {
@@ -165,10 +165,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ZAM_Controller:build:production"
+              "buildTarget": "ZAM_Controller:build:production"
             },
             "development": {
-              "browserTarget": "ZAM_Controller:build:development"
+              "buildTarget": "ZAM_Controller:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -176,7 +176,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ZAM_Controller:build"
+            "buildTarget": "ZAM_Controller:build"
           }
         },
         "test": {
@@ -265,10 +265,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ZAM_Viewer:build:production"
+              "buildTarget": "ZAM_Viewer:build:production"
             },
             "development": {
-              "browserTarget": "ZAM_Viewer:build:development"
+              "buildTarget": "ZAM_Viewer:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -276,7 +276,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ZAM_Viewer:build"
+            "buildTarget": "ZAM_Viewer:build"
           }
         },
         "test": {
