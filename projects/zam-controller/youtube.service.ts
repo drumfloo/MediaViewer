@@ -9,11 +9,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class YoutubeService {
 
-  apiKey : string = 'AIzaSyA4owwiGHR9OOHP_kCZdDGUBWwyreQryR8';
-  // public videos: any[] = []; // X
-  // private unsubscribe$: Subject<any> = new Subject();
+  apiKey : string = 'AIzaSyDvpVFzT6jJulm-w6aw7riMEK8CDy5D4p4';
 
-  constructor(public http: HttpClient) { } // X
+  constructor(public http: HttpClient) { } 
 
     getVideosForChanel(channel: any, maxResults: any): Observable<Object> {
     let url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
@@ -22,23 +20,4 @@ export class YoutubeService {
         return res;
       }))
   }
-
-  // ngOnInit() {
-  //   this.spinner.show()
-  //   setTimeout(()=>
-  //   {
-  //   this.spinner.hide()
-  //   },3000)
-  //   this.videos = [];
-  //   this.youTubeService
-  //     .getVideosForChanel('UC_LtA_EtCr7Jp5ofOsYt18g', 15)
-  //     .pipe(takeUntil(this.unsubscribe$))
-  //     .subscribe((list: any) => {
-  //       for (let element of list['items']) {
-  //         this.videos.push(element)
-  //       }
-  //     });
-  // }
-
-
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; //X
 import { YoutubeService } from 'projects/zam-controller/youtube.service';
 import { Subject, takeUntil } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';

@@ -3,14 +3,17 @@
     <div class="card-container" *ngFor="let video of videos" style="margin:2em">
     <mat-card matRipple class="clickable"> 
       <!-- (click)=onCardClick(video) -->
-      <mat-card-header class="header-container">
+      <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+        <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
+      </a>
+      <!-- <mat-card-header class="header-container">
         <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
           <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
-        </a>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <!-- <mat-card-title>{{video.snippet.title}}</mat-card-title> -->
-        <!-- <mat-card-subtitle>{{video.snippet.description}}</mat-card-subtitle> -->
-      </mat-card-header>
+        </a> 
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{video.snippet.title}}</mat-card-title>
+        <mat-card-subtitle>{{video.snippet.description}}</mat-card-subtitle>
+      </mat-card-header> -->
       <!-- <img mat-card-image> -->
       <!-- <mat-card-content>
         <p>
@@ -22,6 +25,10 @@
     </mat-card>
   </div>
 </div>
+
+
+
+
  
  <!-- <div class="grid-container">
     <div class="background-image"></div>
