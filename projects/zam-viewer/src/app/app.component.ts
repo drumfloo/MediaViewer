@@ -1,6 +1,6 @@
 import { Component, HostBinding, ViewChild } from '@angular/core';
 import {YouTubePlayer, YOUTUBE_PLAYER_CONFIG} from '@angular/youtube-player';
-//import {NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +8,7 @@ import {YouTubePlayer, YOUTUBE_PLAYER_CONFIG} from '@angular/youtube-player';
   styleUrls: ['./app.component.scss']
 })
 
-@NgModule({
-  imports: [YouTubePlayer],
-  providers: [{
-    provide: YOUTUBE_PLAYER_CONFIG,
-    useValue: {
-      loadApi: false
-    }
-  }]
-})
+
 
 
 export class AppComponent {

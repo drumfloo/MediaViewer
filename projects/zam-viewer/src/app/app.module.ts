@@ -8,9 +8,10 @@ import { AppComponent } from './app.component';
 // import { VgControlsModule } from '@videogular/ngx-videogular/controls';VgControlsModule
 // import { VgOverlayPlayModule } from '@videogular/ngx-videogular/overlay-play';VgOverlayPlayModule
 // import { VgBufferingModule } from '@videogular/ngx-videogular/buffering';VgBufferingModule
-import { HttpClientModule } from '@angular/common/http';
-import {Component} from '@angular/core';
-import {YouTubePlayer} from '@angular/youtube-player';
+
+// import { HttpClientModule } from '@angular/common/http';
+// import {Component} from '@angular/core';
+// import {YouTubePlayer} from '@angular/youtube-player';
 
 
 @NgModule({
@@ -20,9 +21,9 @@ import {YouTubePlayer} from '@angular/youtube-player';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    YouTubePlayer,
-    Component
+    // HttpClientModule,
+    // YouTubePlayer,
+    // Component
     
   ],
   providers: [],

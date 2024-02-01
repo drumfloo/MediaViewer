@@ -1,29 +1,47 @@
-  <div class="grid-container">
+<div class="grid-container">
     <div class="background-image"></div>
-    <div class="card-container" *ngFor="let site of sites" style="margin:2em">
-      <mat-card (click)=onCardClick(site[1]) matRipple class="clickable">
-        <!-- [routerLink]="site.url" for clickable mat-card -->
-
-        <mat-card-content>
+    <div class="card-container" *ngFor="let video of videos" style="margin:2em">
+    <mat-card matRipple class="clickable"> 
+      <!-- (click)=onCardClick(video) -->
+      <mat-card-header class="header-container">
+        <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+          <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
+        </a>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <!-- <mat-card-title>{{video.snippet.title}}</mat-card-title> -->
+        <!-- <mat-card-subtitle>{{video.snippet.description}}</mat-card-subtitle> -->
+      </mat-card-header>
+      <!-- <img mat-card-image> -->
+      <!-- <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content> -->
+    </mat-card>
+  </div>
+</div>
+ 
+ <!-- <div class="grid-container">
+    <div class="background-image"></div>
+    <div class="card-container" *ngFor="let video of videos" style="margin:2em">
+      <mat-card (click)=onCardClick(video) matRipple class="clickable">         -->
+        <!-- OLD [routerLink]="site.url" for clickable mat-card -->
+        <!-- <mat-card-content>
           <div class="header-container">
-            <h2>{{ site[0] }}</h2>
+            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+              <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
+            </a>
+            <h5 class="card-title mb-0">
+              <a>{{video.snippet.title.slice(0, 50)}}</a> -->
+              <!--OLD <a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}</a> -->
+            <!-- </h5>
           </div>
           <div class="subheader-container">
-            <h5>Site information here... ajkdklajdioj oijflkjdslkf</h5>
-         
+            <div class="card-text text-black-50">{{video.snippet.description.slice(0, 30)}}</div>      
           </div>
-          <!-- <div class="linked-button-container">
-            <a href="{{ site[1] }}" target="_blank" rel="noopener">
-              <button mat-flat-button color="primary">Play</button>
-            </a>
-          </div> -->
-          <!-- <div class="delete-button-container">
-            <button (click)="deleteCard(site)" mat-mini-fab mat-mini-fab color="warn" aria-label="delete button">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </div> -->
         </mat-card-content>
       </mat-card>
     </div>
-  </div>
-<!-- </div> -->
+  </div> -->

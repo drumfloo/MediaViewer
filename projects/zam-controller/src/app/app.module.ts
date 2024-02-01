@@ -12,12 +12,18 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatCardModule} from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import {YouTubePlayer} from '@angular/youtube-player';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    GridContentComponent
+    GridContentComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -29,6 +35,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     FormsModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    YouTubePlayer,
+    NgxSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
