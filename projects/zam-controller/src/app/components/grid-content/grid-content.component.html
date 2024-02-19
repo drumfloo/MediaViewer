@@ -1,11 +1,11 @@
 <div class="grid-container">
     <div class="background-image"></div>
     <div class="card-container" *ngFor="let video of videos" style="margin:2em">
-    <mat-card matRipple class="clickable"> 
+      <mat-card matRipple class="clickable"> 
       <!-- (click)=onCardClick(video) -->
-      <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
-        <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
-      </a>
+        <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+          <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
+        </a>
       <!-- <mat-card-header class="header-container">
         <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
           <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">

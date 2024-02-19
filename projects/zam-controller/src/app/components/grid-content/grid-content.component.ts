@@ -7,7 +7,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 declare var require: any;
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -21,7 +20,6 @@ declare var require: any;
 
 export class GridContentComponent {
 
-  //public sites: any[] = [];
   videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
 
@@ -36,7 +34,7 @@ export class GridContentComponent {
     },3000)
     this.videos = [];
     this.youTubeService
-      .getVideosForPlaylist('PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC', 15) 
+      .getVideosForPlaylist('PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC', 12) 
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((list: any)=> {
         for (let element of list["items"]) {
