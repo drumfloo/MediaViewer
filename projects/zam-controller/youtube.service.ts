@@ -10,14 +10,18 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class YoutubeService {
 
   apiKey : string = 'AIzaSyDvpVFzT6jJulm-w6aw7riMEK8CDy5D4p4';
-
+  playListId: string = 'PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC' // nicht öffentliche Liste ZimmerGroup Kanal
+  // ZimmerGroup Channel ID  - 'UCEv64d6puxi9PSGzn7_otTw'
+  
   constructor(public http: HttpClient) { } 
 
-    getVideosForChanel(channel: any, maxResults: any): Observable<Object> {
-    let url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
+    getVideosForPlaylist(playListId: any, maxResults: any): Observable<Object> {
+    let url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&playlistId=' + playListId + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
     return this.http.get(url)
       .pipe(map((res) => {
         return res;
       }))
   }
 }
+
+//     let url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults

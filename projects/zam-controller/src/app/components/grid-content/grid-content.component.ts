@@ -36,7 +36,7 @@ export class GridContentComponent {
     },3000)
     this.videos = [];
     this.youTubeService
-      .getVideosForChanel('UCEv64d6puxi9PSGzn7_otTw', 15)
+      .getVideosForPlaylist('PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC', 15) 
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((list: any)=> {
         for (let element of list["items"]) {
