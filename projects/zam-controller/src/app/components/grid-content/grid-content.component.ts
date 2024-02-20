@@ -38,11 +38,7 @@ export class GridContentComponent {
           this.videos.push(element)
         }
         console.log(this.videos) // DEBUG
-        console.log(this.videos[0]["snippet"]["resourceId"]["videoId"])
-
-      });
-
-      
+      });     
   } 
 
   public onCardClick(cardName: any){ 
