@@ -15,13 +15,29 @@ export class YoutubeService {
   
   constructor(public http: HttpClient) { } 
 
-    getVideosForPlaylist(playListId: any, maxResults: any): Observable<Object> {
+  // getVideoID(videosPlaylist: any){
+  //   let counter = 0
+  //   for(let videoID in videosPlaylist[counter]){
+  //     if(videosPlaylist && videosPlaylist.snippet && videosPlaylist.snippet.resourceId && videosPlaylist.snippet.resourceId.videoId){
+  //       return videosPlaylist.snippet.resourceId.videoId;
+  //     }
+  //   }
+  // }
+
+  getVideosForPlaylist(playListId: any, maxResults: any): Observable<Object> {
     let url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&playlistId=' + playListId + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
     return this.http.get(url)
-      .pipe(map((res) => {
-        return res;
-      }))
+    .pipe(map((res) => {
+      return res;
+    }))
   }
 }
 
+
+
+
 //     let url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
+// '&videoId=' + videoId +
+
+
+// videos[0]["snippet"]["resourceId"]["videoId"]

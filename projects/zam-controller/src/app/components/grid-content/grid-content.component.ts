@@ -5,8 +5,6 @@ import { Subject, takeUntil } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 
-declare var require: any;
-
 @Injectable({
   providedIn: 'root'
 })
@@ -25,14 +23,13 @@ export class GridContentComponent {
 
   constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService) { }
 
-
   ngOnInit() {
     this.spinner.show()
     setTimeout(()=>
     {
       this.spinner.hide()
     },3000)
-    this.videos = [];
+    //this.videos = [];
     this.youTubeService
       .getVideosForPlaylist('PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC', 12) 
       .pipe(takeUntil(this.unsubscribe$))
@@ -41,8 +38,10 @@ export class GridContentComponent {
           this.videos.push(element)
         }
         console.log(this.videos) // DEBUG
+        console.log(this.videos[0]["snippet"]["resourceId"]["videoId"])
 
       });
+
       
   } 
 
@@ -56,20 +55,6 @@ export class GridContentComponent {
   // public deleteCard(cardName: any){
   //   console.log(cardName + " deleted");
   //   this.sites = this.sites.filter(value => value != cardName);
-  // }
-
-
-  
-  
-  // gets called at startup through ngOnInit()
-  // get data from database/PIM
-  // public fetchData(){
-  //   const jsonData = require('../../data.json'); 
-
-  //   for(const [key, value] of Object.entries(jsonData)){
-  //     this.sites.push([`${key}`, `${value}`]);
-  //   }
-  //   console.log(Object.entries(jsonData));
   // }
 
 }
