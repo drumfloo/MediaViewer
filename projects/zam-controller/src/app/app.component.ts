@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-// import { NgxSpinnerService } from 'ngx-spinner';
-// import { YoutubeService } from 'src/app/youtube.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ZAM_Controller';
-  // videos: any[] = []; // X
+
 
   // constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService){}
 

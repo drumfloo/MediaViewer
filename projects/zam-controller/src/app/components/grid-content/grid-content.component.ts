@@ -56,7 +56,7 @@ export class GridContentComponent {
   
   sendURL(url: string) {
     this.comService.send("youtube", {
-      "url" : this.ytWatchLink + url
+      "url" : url
     })
   }
 

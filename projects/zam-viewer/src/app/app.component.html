@@ -1,75 +1,19 @@
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=FRhGG5OTMGRHSRd9&amp;list=PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
 
-<youtube-player videoId="{{url}}"></youtube-player>
-
-
-
-
-
-
-
-
+<!-- <div class="youtube-player-container">
+  <youtube-player videoId="{{url}}">
+  </youtube-player>
+</div> -->
 <div>
-  <video src="{{url}}" target="_blank"></video>
+  <iframe src="{{videoID}}" frameborder="0" allowfullscreen></iframe>
 </div>
 
 
-<!-- <div *ngIf="videoUrl">
-  <video width="320" height="240" controls>
-    <source [src]="videoUrl" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+
+
+
+
+
+<!-- <div>
+  <video src="{{url}}" target="_blank"></video>
 </div> -->
-
-
-<!-- <div id="video-player-wrapper" >
-  <vg-player class="player">
-    <vg-overlay-play></vg-overlay-play>
-    <vg-buffering></vg-buffering>
-    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" (play)="cursor = 'none'" (pause)="cursor = 'pointer'" autoplay="true" type="video/mp4" crossorigin>
-      <source src="../assets/Wochen-Meeting Team IT-SeS-20210823_130620-Besprechungsaufzeichnung.mp4">
-    </video>
-  </vg-player>
-</div> -->
-
-
-
-
-
-
-
-<!-- 
-
-<div id="video-player-wrapper" >
-  <vg-player class="player">
-    <vg-overlay-play></vg-overlay-play>
-    <vg-buffering></vg-buffering>
-    <vg-scrub-bar>
-      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
-    </vg-scrub-bar>
-    <vg-controls>
-      <vg-play-pause></vg-play-pause>
-      <vg-playback-button></vg-playback-button>
-      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
-      <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
-      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
-      <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
-      <vg-track-selector></vg-track-selector>
-      <vg-mute></vg-mute>
-      <vg-volume></vg-volume>
-      <vg-fullscreen></vg-fullscreen>
-    </vg-controls>
-    <video [vgMedia]="$any(media)" #media id="singleVideo" preload="auto" (play)="cursor = 'none'" (pause)="cursor = 'pointer'" autoplay="true" type="video/mp4" crossorigin>
-      <source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
-      <source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
-      <source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm"> 
-      <track kind="subtitles" label="English" src="http://static.videogular.com/assets/subs/pale-blue-dot.vtt"
-        srclang="en" default>
-      <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt"
-        srclang="es">
-    </video>
-  </vg-player>
-</div> -->
-
-
