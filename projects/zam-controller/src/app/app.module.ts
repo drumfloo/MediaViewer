@@ -18,6 +18,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     YouTubePlayer,
     NgxSpinnerModule
   ],
-  providers: [],
+  providers: [
+   
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

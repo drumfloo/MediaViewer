@@ -1,30 +1,34 @@
-import { Component, HostBinding, ViewChild } from '@angular/core';
-import {YouTubePlayer, YOUTUBE_PLAYER_CONFIG} from '@angular/youtube-player';
-import {NgModule} from '@angular/core';
-
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
-})
+import { Component, OnInit } from '@angular/core'; 
+import { ComService } from './service/com.service';
+import { YouTubePlayer } from '@angular/youtube-player';
 
 
 
+@Component({ 
+	selector: 'app-root', 
+	templateUrl: './app.component.html', 
+	styleUrls: ['./app.component.css'] 
+}) 
+export class AppComponent implements OnInit { 
+	title = 'frontEnd'; 
+	message: any; 
+	url: String = "";
 
-export class AppComponent {
-  title = 'ZAM_Viewer';
+	constructor(protected comService: ComService) {
+		this.comService = comService;
+	 }; 
 
-  // @HostBinding("style.--pointer-style")
-  // public cursor: 'pointer' | 'none' = 'pointer';
+	ngOnInit() { 
+		this.comService.subscribe("youtube", (msg: any) => {
+			this.url = msg.url;
+		})
+
+	}
+
+	callback(){
+		console.log("Callback!")
+	}
 
 
-
-
-  
 }
-
-
-
-
-
 

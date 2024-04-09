@@ -31,4 +31,10 @@ export class AppComponent {
   //   });
   //   }
 
+  constructor(){
+  }
+  
+  ngOnInit(){
+  }
+
 }

@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { YoutubeService } from 'projects/zam-controller/youtube.service';
-import { Subject, takeUntil } from 'rxjs';
+import { YoutubeService } from './youtube.service';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
-
+import { ComService } from '../../services/com.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +20,12 @@ export class GridContentComponent {
 
   videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
+  private ytWatchLink = "https://www.youtube.com/watch?v=";
 
-  constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService) { }
+  constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService, protected comService: ComService) {
+    this.comService = comService;
+   }
+
 
   ngOnInit() {
     this.spinner.show()
@@ -38,19 +42,24 @@ export class GridContentComponent {
           this.videos.push(element)
         }
         console.log(this.videos) // DEBUG
-      });     
+      });  
   } 
 
   public onCardClick(cardName: any){ 
     //window.open(cardName, '_blank');
-    window.open(cardName.id.videoId)
+    //window.open(cardName.id.videoId)
+    
+    console.log(this.ytWatchLink + cardName)
+    // let wss = new WebSocketService();
+    // wss.send(this.ytWatchLink + cardName);
+  }
+  
+  sendURL(url: string) {
+    this.comService.send("youtube", {
+      "url" : this.ytWatchLink + url
+    })
   }
 
-
-  // Not in use
-  // public deleteCard(cardName: any){
-  //   console.log(cardName + " deleted");
-  //   this.sites = this.sites.filter(value => value != cardName);
-  // }
-
 }
+
+
