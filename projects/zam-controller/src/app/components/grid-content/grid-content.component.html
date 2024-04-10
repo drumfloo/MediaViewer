@@ -1,29 +1,12 @@
 <div class="grid-container">
     <div class="background-image"></div>
     <div class="card-container" *ngFor="let video of videos" style="margin:2em">
-      <!-- <mat-card matRipple class="clickable" (click)="onCardClick(video.snippet.resourceId.videoId)">  -->
         <mat-card matRipple class="clickable" (click)="sendURL(video.snippet.resourceId.videoId)">
       <!-- (click)=onCardClick(video) -->
       <!-- href="{{ytBlankURL + video.snippet.resourceId.videoId}}" target="_blank" -->
         <a>
           <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
         </a>
-      <!-- <mat-card-header class="header-container">
-        <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
-          <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
-        </a> 
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{video.snippet.title}}</mat-card-title>
-        <mat-card-subtitle>{{video.snippet.description}}</mat-card-subtitle>
-      </mat-card-header> -->
-      <!-- <img mat-card-image> -->
-      <!-- <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content> -->
     </mat-card>
   </div>
 </div>

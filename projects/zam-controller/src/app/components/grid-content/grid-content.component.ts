@@ -20,12 +20,11 @@ export class GridContentComponent {
 
   videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
-  private ytWatchLink = "https://www.youtube.com/watch?v=";
+  //private ytWatchLink = "https://www.youtube.com/watch?v=";
 
   constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService, protected comService: ComService) {
     this.comService = comService;
    }
-
 
   ngOnInit() {
     this.spinner.show()
@@ -44,15 +43,6 @@ export class GridContentComponent {
         console.log(this.videos) // DEBUG
       });  
   } 
-
-  public onCardClick(cardName: any){ 
-    //window.open(cardName, '_blank');
-    //window.open(cardName.id.videoId)
-    
-    console.log(this.ytWatchLink + cardName)
-    // let wss = new WebSocketService();
-    // wss.send(this.ytWatchLink + cardName);
-  }
   
   sendURL(url: string) {
     this.comService.send("youtube", {
