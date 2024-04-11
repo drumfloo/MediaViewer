@@ -20,6 +20,7 @@ export class GridContentComponent {
 
   videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
+  //public loadedVideos: any[] = []
   //private ytWatchLink = "https://www.youtube.com/watch?v=";
 
   constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService, protected comService: ComService) {
@@ -39,14 +40,19 @@ export class GridContentComponent {
       .subscribe((list: any)=> {
         for (let element of list["items"]) {
           this.videos.push(element)
+          console.log(element)
+          //this.loadedVideos.push(element.snippet.resourceId.videoId)
+          
         }
-        console.log(this.videos) // DEBUG
-      });  
+      //console.log(this.loadedVideos)
+        
+    });  
   } 
   
-  sendURL(url: string) {
+  sendURL(url: string, position: any) {
     this.comService.send("youtube", {
-      "url" : url
+      "url" : url,
+      "position" : position
     })
   }
 

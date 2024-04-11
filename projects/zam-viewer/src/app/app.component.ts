@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core'; 
 import { ComService } from './service/com.service';
-// import { YouTubePlayer } from '@angular/youtube-player';
-// import { YouTubePlayerModule } from '@angular/youtube-player';
+
 
 
 @Component({ 
@@ -13,17 +12,24 @@ import { ComService } from './service/com.service';
 
 
 export class AppComponent implements OnInit { 
-	title = 'frontEnd'; 
+	//title = 'frontEnd'; 
 	message: any; 
 	videoID: any;
-	
 	screenWidth = window.screen.width	//innerWidth;
 	screenHeight = window.screen.height	//innerHeight;
+
+	
 
 	constructor(protected comService: ComService) {
 		this.comService = comService;
 		
-	 }; 
+	};
+	
+	// Autoplay
+	// onReady() {
+	// 	this.player.mute();         
+	// 	this.player.playVideo();    
+	//   }
 
 	
 	ngOnInit() { 
@@ -38,3 +44,5 @@ export class AppComponent implements OnInit {
 
 }
 
+
+// node server.js
