@@ -24,6 +24,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     VgBufferingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    
   ],
 
   providers: [

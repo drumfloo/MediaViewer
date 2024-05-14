@@ -63,7 +63,11 @@ export class ComService {
    *************************/
 
   private onConnected() {
-
+    // if(this.subscriptions["onConnected"]) {
+    //   this.subscriptions["onConnected"].forEach(func => {
+    //     func();
+    //   });
+    // }
   }
 
   /*************************
@@ -101,12 +105,17 @@ export class ComService {
    * send a message to the websocket
    *************************/
 
+  //public test: any;
   public send(channel: string, msg : any) {
     msg.channel = channel;
     let json_string = JSON.stringify(msg);
     this.ws!.send(json_string);
+
+    //this.test = msg.data
+    //console.log("sendMethod", this.test)
+  
     console.log(msg);
-    console.log(this.ws);
+    //console.log(this.ws);
   }
 
 }

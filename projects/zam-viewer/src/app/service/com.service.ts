@@ -106,8 +106,8 @@ export class ComService {
     msg.channel = channel;
     let json_string = JSON.stringify(msg);
     this.ws!.send(json_string);
-    console.log(msg);
-    console.log(this.ws);
+    //console.log(msg);
+    //console.log(this.ws);
   }
 
 }
