@@ -37,13 +37,13 @@ export class GridContentComponent {
     },3000)
     //this.videos = [];
 
-    this.comService.subscribe("config", (msg: any) => {
-      if(msg.cmd == "get_config") {
-        this.comService.send("config", {
-          url: this.youTubeService   
-        });
-      }
-    })
+    // this.comService.subscribe("config", (msg: any) => {
+    //   if(msg.cmd == "get_config") {
+    //     this.comService.send("config", {
+    //       url: this.youTubeService   
+    //     });
+    //   }
+    // })
 
     
     this.youTubeService
@@ -57,9 +57,17 @@ export class GridContentComponent {
           // gets video of position 0 and sends it to server socket-channel "youtube"
           // while starting Controller-App
           if(element.snippet.position == 0){
-            this.sharedService.setData(element.snippet.resourceId.videoId)
-            this.comService.send("youtube", {
-              "url" : element.snippet.resourceId.videoId
+            // this.sharedService.setData(element.snippet.resourceId.videoId)
+            // this.comService.send("youtube", {
+            //   "url" : element.snippet.resourceId.videoId
+            // })
+
+            this.comService.subscribe("config", (msg: any) => {
+              if(msg.cmd == "get_config") {
+                this.comService.send("config", {
+                  url: element.snippet.resourceId.videoId
+                });
+              }
             })
             
           }                 

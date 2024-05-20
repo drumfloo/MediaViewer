@@ -115,7 +115,6 @@ export class ComService {
     //console.log("sendMethod", this.test)
   
     console.log(msg);
-    //console.log(this.ws);
   }
 
 }
