@@ -111,8 +111,6 @@ export class ComService {
     let json_string = JSON.stringify(msg);
     this.ws!.send(json_string);
 
-    //this.test = msg.data
-    //console.log("sendMethod", this.test)
   
     console.log(msg);
   }

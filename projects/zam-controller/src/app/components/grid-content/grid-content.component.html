@@ -1,7 +1,7 @@
 <div class="grid-container">
     <div class="background-image"></div>
     <div class="card-container" *ngFor="let video of videos" style="margin:2em">
-        <mat-card matRipple class="clickable" (click)="sendURL(video.snippet.resourceId.videoId,video.snippet.position)">
+        <mat-card matRipple class="clickable" (click)="sendToView(video.snippet.resourceId.videoId,video.snippet.position)">
       <!-- (click)=onCardClick(video) -->
       <!-- href="{{ytBlankURL + video.snippet.resourceId.videoId}}" target="_blank" -->
         <a>

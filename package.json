@@ -1,14 +1,13 @@
 {
   "name": "zam",
   "version": "0.0.0",
- 
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "compodoc": "compodoc -p tsconfig.json -s"
+    "test": "ng test"
+    
   },
   "private": true,
   "dependencies": {
@@ -34,6 +33,7 @@
     "@angular-devkit/build-angular": "^17.1.1",
     "@angular/cli": "~17.1.1",
     "@angular/compiler-cli": "^17.1.1",
+    "@compodoc/compodoc": "^1.1.24",
     "@types/core-js": "^2.5.8",
     "@types/jasmine": "~4.3.0",
     "@types/node": "^20.10.7",

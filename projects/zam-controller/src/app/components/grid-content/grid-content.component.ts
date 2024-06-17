@@ -35,7 +35,6 @@ export class GridContentComponent {
     {
       this.spinner.hide()
     },3000)
-    //this.videos = [];
 
     // this.comService.subscribe("config", (msg: any) => {
     //   if(msg.cmd == "get_config") {
@@ -57,10 +56,10 @@ export class GridContentComponent {
           // gets video of position 0 and sends it to server socket-channel "youtube"
           // while starting Controller-App
           if(element.snippet.position == 0){
-            // this.sharedService.setData(element.snippet.resourceId.videoId)
-            // this.comService.send("youtube", {
-            //   "url" : element.snippet.resourceId.videoId
-            // })
+            this.sharedService.setData(element.snippet.resourceId.videoId)
+            this.comService.send("defaultVideo", {
+              "url" : element.snippet.resourceId.videoId
+            })
 
             this.comService.subscribe("config", (msg: any) => {
               if(msg.cmd == "get_config") {
@@ -76,7 +75,7 @@ export class GridContentComponent {
     });  
   } 
 
-  sendURL(url: string, position: any) {
+  sendToView(url: string, position: any) {
     this.comService.send("youtube", {
       "url" : url,
       "position" : position
