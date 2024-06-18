@@ -102,12 +102,26 @@ export class ComService {
    * send a message to the websocket
    *************************/
 
-  public send(channel: string, msg : any) {
+  public async send(channel: string, msg : any) {
     msg.channel = channel;
     let json_string = JSON.stringify(msg);
+    await this.waitForConnection();
     this.ws!.send(json_string);
     //console.log(msg);
     //console.log(this.ws);
+
+  }
+
+  private waitForConnection() {
+    let waitFor: (connection?: boolean) => Promise<boolean> = (connection?: boolean) => {
+      if (connection) {
+        return Promise.resolve(true);
+      }
+      return new Promise<boolean>(resolve => setTimeout(resolve, 100))
+      .then(() => Promise.resolve(this.ws?.readyState == this.ws?.OPEN))
+      .then((result) => waitFor(result))
+    }
+    return waitFor();    
   }
 
 }

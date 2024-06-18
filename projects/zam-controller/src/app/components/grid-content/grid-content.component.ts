@@ -30,19 +30,46 @@ export class GridContentComponent {
 
 
   ngOnInit() {
+    this.comService.subscribe("requestData", () => {
+      this.apiReplyer();
+    });
+    this.apiReplyer();
+  } 
+
+
+  sendToView(url: string, position: any) {
+    this.comService.send("youtube", {
+      "url" : url,
+      "position" : position
+    })
+  }
+
+
+  sendDefaultVideo(list: any){
+    if(list[0].snippet.position == 0){
+      this.sharedService.setData(list[0].snippet.resourceId.videoId)
+      this.comService.send("defaultVideo", {
+        "url" : list[0].snippet.resourceId.videoId
+      })
+
+      this.comService.subscribe("config", (msg: any) => {
+        if(msg.cmd == "get_config") {
+          this.comService.send("config", {
+            url: list[0].snippet.resourceId.videoId
+          });
+        }
+      })
+      
+    }
+
+  }
+
+  apiReplyer(){
     this.spinner.show()
     setTimeout(()=>
     {
       this.spinner.hide()
     },3000)
-
-    // this.comService.subscribe("config", (msg: any) => {
-    //   if(msg.cmd == "get_config") {
-    //     this.comService.send("config", {
-    //       url: this.youTubeService   
-    //     });
-    //   }
-    // })
 
     
     this.youTubeService
@@ -51,35 +78,22 @@ export class GridContentComponent {
       .forEach((list: any)=> {
         for (let element of list["items"]) {
           this.videos.push(element) 
+          console.log(element)
           
-          // TEST
-          // gets video of position 0 and sends it to server socket-channel "youtube"
-          // while starting Controller-App
-          if(element.snippet.position == 0){
-            this.sharedService.setData(element.snippet.resourceId.videoId)
-            this.comService.send("defaultVideo", {
-              "url" : element.snippet.resourceId.videoId
-            })
-
-            this.comService.subscribe("config", (msg: any) => {
-              if(msg.cmd == "get_config") {
-                this.comService.send("config", {
-                  url: element.snippet.resourceId.videoId
-                });
-              }
-            })
-            
-          }                 
+          this.comService.subscribe("config", (msg: any) => {
+            if(msg.cmd == "get_config") {
+              this.comService.send("config", {
+                url: element.snippet.resourceId.videoId
+              });
+            }
+          })
+                           
         
-        }        
-    });  
-  } 
+        }
+        this.sendDefaultVideo(list["items"]);     
+    });
 
-  sendToView(url: string, position: any) {
-    this.comService.send("youtube", {
-      "url" : url,
-      "position" : position
-    })
+    
   }
 
   

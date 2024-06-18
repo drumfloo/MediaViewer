@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core'; 
+import { AfterViewInit, Component, OnInit, ViewChild, ViewRef } from '@angular/core'; 
 import { ComService } from './service/com.service';
 import { SharedService } from 'projects/services/shared.service';
+import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({ 
 	selector: 'app-root', 
@@ -11,11 +12,12 @@ import { SharedService } from 'projects/services/shared.service';
 export class AppComponent implements OnInit { 
 	videoID: any;
 	defaultVideoID: any;
-	//defaultVid = "https://www.youtube.com/watch?v=qhX1miCidEo&ab_channel=WELTNachrichtensender";
 	subSharedService: any;
 
 	screenWidth = window.screen.width	//innerWidth;
 	screenHeight = window.screen.height	//innerHeight;
+
+	@ViewChild(YouTubePlayer) youtubePlayer?: YouTubePlayer;
 
 
 
@@ -25,50 +27,42 @@ export class AppComponent implements OnInit {
 		this.sharedService.dataValue$.subscribe(subSharedService =>{
 			this.subSharedService = subSharedService;
 		  })
-		
-		console.log("Constructor", this.defaultVideoID, this.videoID);	// <---
-
 	};
 	
 	
 	ngOnInit() {
-		this.comService.subscribe("config", (msg: any) => {
+		this.comService.send("requestData", {});
+
+		this.comService.subscribe("defaultVideo", (msg: any) => {
 			this.defaultVideoID = msg.url;
-			
-		})
-		
-		
-		this.comService.subscribe("youtube", (msg: any) => {
-			//console.log(msg)
-			this.videoID = msg.url;
+			if (this.youtubePlayer == undefined) {
+				this.videoID = this.defaultVideoID;
+			} else {
+				this.endCheckEvent(this.youtubePlayer?.getPlayerState());
+			}
+			console.log(msg);
 		})
 				
-		this.subSharedService = this.sharedService.getData()
-		
-		setTimeout(() => {this.comService.send("config", {cmd : "get_config"})}, 1000)
-		//this.comService.send("config", {cmd : "get_config"});
-
-		// addEventListener('ended', (event) => {
-		// 	this.videoID = this.defaultVideoID
-		// });
-		console.log(this.defaultVideoID, this.videoID); // <---
-
+		this.comService.subscribe("youtube", (msg: any) => {
+			this.videoID = msg.url;
+			console.log(msg);
+		})
+				
+		//this.endCheckEvent(this.videoID);
+		//setTimeout(() => {this.comService.send("config", {cmd : "get_config"})}, 1000)
+	
 	}
 
-	endCheckEvent(event: any){
-		if(event.data === YT.PlayerState.ENDED){
+	listenToChanges(event: YT.OnStateChangeEvent){
+		console.log(event);
+		this.endCheckEvent(event.data);
+	}
+
+	endCheckEvent(state?: YT.PlayerState) {
+		if(state === YT.PlayerState.ENDED){
 			this.videoID = this.defaultVideoID;
+			this.youtubePlayer?.playVideo();
 		}
-		// addEventListener('ended', (event) => {
-		// 	this.videoID = this.defaultVideoID
-		// });
-		
-		
-		// document.getElementById('movie_player')!.addEventListener('ended',myHandler,false);
-    	// const myHandler = () => {
-        // // What you want to do after the event
-		// this.videoID = this.defaultVideoID
-    	// }
 	}
 
 

@@ -41,8 +41,8 @@ export class ComService {
 
     this.ws.onmessage = function(response) {
       console.log(response);
-      //let msg = JSON.parse(response.data);
-      //that.onMessage(msg);
+      let msg = JSON.parse(response.data);
+      that.onMessage(msg);
     };
 
     this.ws.onopen = function(msg) {
