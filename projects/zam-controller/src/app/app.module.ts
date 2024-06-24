@@ -16,6 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {YouTubePlayer} from '@angular/youtube-player';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 
@@ -24,6 +26,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AppComponent,
     ToolbarComponent,
     GridContentComponent,
+    DialogComponent
     
   ],
   imports: [
@@ -38,7 +41,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     BrowserAnimationsModule,
     HttpClientModule,
     YouTubePlayer,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatDialogModule
   ],
   providers: [
    

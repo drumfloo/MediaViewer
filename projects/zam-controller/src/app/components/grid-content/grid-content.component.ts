@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { YoutubeService } from './youtube.service';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ComService } from '../../services/com.service';
 import { SharedService } from 'projects/services/shared.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +21,10 @@ import { SharedService } from 'projects/services/shared.service';
 
 export class GridContentComponent {
 
+  readonly dialog: MatDialog = inject(MatDialog);
+
   public videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
-  //private ytWatchLink = "https://www.youtube.com/watch?v=";
 
   constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService, protected comService: ComService, private sharedService: SharedService) {
     this.comService = comService;
@@ -42,6 +45,11 @@ export class GridContentComponent {
       "url" : url,
       "position" : position
     })
+
+    this.dialog.open(DialogComponent, {
+      data: this.videos[position].snippet,       
+    });
+
   }
 
 
@@ -91,12 +99,8 @@ export class GridContentComponent {
         
         }
         this.sendDefaultVideo(list["items"]);     
-    });
-
-    
+    }); 
   }
-
-  
 
 }
 
