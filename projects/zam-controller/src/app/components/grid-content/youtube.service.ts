@@ -16,7 +16,6 @@ export class YoutubeService {
   
   constructor(public http: HttpClient) { } 
 
-  //    let url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&playlistId=' + playListId + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
   getVideosForPlaylist(): Observable<any> {
     let url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + this.apiKey + '&playlistId=' + this.playListId + '&order=date&part=snippet &type=video,id&maxResults=' + this.maxResults 
     return this.http.get(url)
