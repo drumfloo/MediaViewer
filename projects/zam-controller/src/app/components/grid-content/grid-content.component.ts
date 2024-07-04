@@ -78,7 +78,6 @@ export class GridContentComponent {
     {
       this.spinner.hide()
     },3000)
-
     
     this.youTubeService
       .getVideosForPlaylist()   //'PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC'
@@ -86,16 +85,14 @@ export class GridContentComponent {
       .forEach((list: any)=> {
         for (let element of list["items"]) {
           this.videos.push(element) 
-          console.log(element)
-          
+          //console.log(element)          
           this.comService.subscribe("config", (msg: any) => {
             if(msg.cmd == "get_config") {
               this.comService.send("config", {
                 url: element.snippet.resourceId.videoId
               });
             }
-          })
-                           
+          })                           
         
         }
         this.sendDefaultVideo(list["items"]);     
