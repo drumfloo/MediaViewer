@@ -126,7 +126,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/zam-controller/src/favicon.ico",
-              "projects/zam-controller/src/assets"
+              "projects/zam-controller/src/assets",
+              {"glob": "credentials.json", "input": "../", "output": "./assets/" }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
@@ -190,7 +191,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/zam-controller/src/favicon.ico",
-              "projects/zam-controller/src/assets"
+              "projects/zam-controller/src/assets",
+              {"glob": "credentials.json", "input": "../", "output": "./assets/" }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",

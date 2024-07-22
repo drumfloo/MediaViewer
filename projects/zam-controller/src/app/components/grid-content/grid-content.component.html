@@ -1,11 +1,19 @@
 <div class="grid-container">
     <div class="background-image"></div>
-    <div class="card-container" *ngFor="let video of videos">
+    <div class="card-container" *ngFor="let video of videos" >
       <mat-card matRipple class="clickable" (click)="sendToView(video.snippet.resourceId.videoId, video.snippet.position)">
         <a id="card-thumbnail">
           <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="...">
-        </a>
+        </a>       
       </mat-card>
   </div>
 </div>
+
+
+  @if (schowSettings) {
+    <div class="setting-dialogue">
+      <app-settings></app-settings>
+    </div>
+    
+  }
 

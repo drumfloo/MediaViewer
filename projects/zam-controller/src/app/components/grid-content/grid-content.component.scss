@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
   margin: 10px;
   flex-wrap: wrap;   
   border: 1px solid #0077c8;
@@ -11,17 +11,17 @@
 }
 
 .background-image{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../../../assets/ZimmerLogoBluecutout.png');
-    background-repeat: no-repeat;
-    background-attachment: local; //fixed;
-    background-size: 30%;
-    background-position: center center;
-    filter: brightness(2) blur(15px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../../assets/ZimmerLogoBluecutout.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed; // local;
+  background-size: 30%;
+  background-position: center center;
+  filter: brightness(2) blur(15px);
     
 }
   

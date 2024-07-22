@@ -8,7 +8,7 @@ export class SharedService {
     
     private dataSource = new Subject()
     dataValue$ = this.dataSource.asObservable();
-    defaultVid: any
+  
   
     constructor() { }
    
@@ -18,7 +18,6 @@ export class SharedService {
     }
 
     getData(){
-      //console.log("SharedService value", this.dataValue$);
       return this.dataSource
 
     }
