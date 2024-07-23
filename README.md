@@ -1,3 +1,11 @@
+# ZAM - Zimmer Atrium Multimedial
+Application to show videos (currently pulled from the Zimmer YouTube-channel). It fetches from a specific channel, defined in the `assets/credentials.json`.
+
+## Change API-Key and/or Channel-Id
+In case of changing the API-Kkey or playlist-Id, changes can be made here: `projects\zam-controller\src\assets\credentials.json`
+
+
+
 # ZAM
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
