@@ -1,12 +1,12 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { YoutubeService } from './youtube.service';
-import { Observable, Subject, takeUntil } from 'rxjs';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { Subject, takeUntil } from 'rxjs';
 import { ComService } from '../../services/com.service';
 import { SharedService } from 'projects/services/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 @Injectable({
   providedIn: 'root'
@@ -22,23 +22,42 @@ import { DialogComponent } from '../dialog/dialog.component';
 export class GridContentComponent {
 
   readonly dialog: MatDialog = inject(MatDialog);
+  readonly settings: MatDialog = inject(MatDialog);
 
   public videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
+  public schowSettings = false;
 
-  constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService, protected comService: ComService, private sharedService: SharedService) {
+  constructor(private youTubeService: YoutubeService, protected comService: ComService, private sharedService: SharedService) {
     this.comService = comService;
     this.youTubeService = youTubeService;
+    
   }
 
 
   ngOnInit() {
     this.comService.subscribe("requestData", () => {
-      this.apiReplyer();
+      this.sendDefaultVideo(this.videos);
     });
-    this.apiReplyer();
-  } 
+    
+    this.loadVideos(); // (864*100000)
+    //setInterval(this.loadVideos, 3000);  
 
+  }
+
+
+  loadVideos() {
+    this.youTubeService
+      .getVideosForPlaylist()   //'PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC'
+      .pipe(takeUntil(this.unsubscribe$))
+      .forEach((list: any)=> {
+        this.videos = [];
+        for (let element of list["items"]) {
+          this.videos.push(element) 
+        }
+        this.sendDefaultVideo(this.videos);
+    }); 
+  }
 
   sendToView(url: string, position: any) {
     this.comService.send("youtube", {
@@ -49,8 +68,16 @@ export class GridContentComponent {
     this.dialog.open(DialogComponent, {
       data: this.videos[position].snippet,       
     });
-
   }
+
+
+  // @HostListener('document:keydown', ['$event'])
+  // keystrokeHandler(event: KeyboardEvent){
+  //   if(event.key === 's'){
+  //     this.settings.open(SettingsComponent)
+  //   }
+        
+  // }
 
 
   sendDefaultVideo(list: any){
@@ -59,45 +86,10 @@ export class GridContentComponent {
       this.comService.send("defaultVideo", {
         "url" : list[0].snippet.resourceId.videoId
       })
-
-      this.comService.subscribe("config", (msg: any) => {
-        if(msg.cmd == "get_config") {
-          this.comService.send("config", {
-            url: list[0].snippet.resourceId.videoId
-          });
-        }
-      })
-      
     }
-
   }
 
-  apiReplyer(){
-    this.spinner.show()
-    setTimeout(()=>
-    {
-      this.spinner.hide()
-    },3000)
-    
-    this.youTubeService
-      .getVideosForPlaylist()   //'PLNf7WrW3VV-yW71-xs-QVc0bvZh32_qVC'
-      .pipe(takeUntil(this.unsubscribe$))
-      .forEach((list: any)=> {
-        for (let element of list["items"]) {
-          this.videos.push(element) 
-          //console.log(element)          
-          this.comService.subscribe("config", (msg: any) => {
-            if(msg.cmd == "get_config") {
-              this.comService.send("config", {
-                url: element.snippet.resourceId.videoId
-              });
-            }
-          })                           
-        
-        }
-        this.sendDefaultVideo(list["items"]);     
-    }); 
-  }
+
 
 }
 

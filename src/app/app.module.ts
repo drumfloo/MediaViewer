@@ -11,6 +11,7 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http'; 
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -24,7 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     VgBufferingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    
+     
   ],
 
   providers: [

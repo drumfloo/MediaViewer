@@ -1,0 +1,38 @@
+<div class="setting-container">
+    <div class="dialog-body">
+        <h1 mat-dialog-title>API-Configuration</h1>
+        <div mat-dialog-content>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>YouTube-API URL</mat-label>
+                    <input matInput [formControl]="youTubeAPI">
+                    <mat-icon matSuffix>looks_one</mat-icon>
+                    <!-- <mat-hint>YoutTube-API till 'key='</mat-hint> -->
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>API-Key</mat-label>
+                    <input matInput [formControl]="apiKey">
+                    <mat-icon matSuffix>looks_two</mat-icon>
+                    <!-- <mat-hint>YouTube-API Key'</mat-hint> -->
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Playlist-ID</mat-label>
+                    <input matInput [formControl]="playlistID">
+                    <mat-icon matSuffix> looks_3</mat-icon>
+                    <!-- <mat-hint>YouTube Playlist ID'</mat-hint> -->
+                </mat-form-field>
+            </p>
+        </div>        
+    </div>
+    <div class="buttons">
+        <div mat-dialog-actions>
+            <button class="close-button" mat-button>Close</button>
+            <button class="submit-button" (click)="submitNewCredentials()" mat-button>Submit</button>
+        </div>
+    </div>    
+</div>
+    

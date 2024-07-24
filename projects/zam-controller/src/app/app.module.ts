@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,8 +18,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './components/dialog/dialog.component';
-
-
+import { SettingsComponent } from "./components/settings/settings.component";
+import { YoutubeService } from './components/grid-content/youtube.service';
 
 @NgModule({
   declarations: [
@@ -42,9 +42,16 @@ import { DialogComponent } from './components/dialog/dialog.component';
     HttpClientModule,
     YouTubePlayer,
     NgxSpinnerModule,
-    MatDialogModule
-  ],
+    MatDialogModule,
+    SettingsComponent,
+],
   providers: [
+    YoutubeService,
+    {provide: APP_INITIALIZER,
+      useFactory: (yts: YoutubeService) => () => yts.loadCredentials(),
+      deps: [YoutubeService],
+      multi: true
+    }
    
   ],
   bootstrap: [AppComponent]
