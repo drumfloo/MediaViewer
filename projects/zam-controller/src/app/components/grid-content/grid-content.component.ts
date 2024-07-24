@@ -71,13 +71,13 @@ export class GridContentComponent {
   }
 
 
-  @HostListener('document:keydown', ['$event'])
-  keystrokeHandler(event: KeyboardEvent){
-    if(event.key === 's'){
-      this.settings.open(SettingsComponent)
-    }
+  // @HostListener('document:keydown', ['$event'])
+  // keystrokeHandler(event: KeyboardEvent){
+  //   if(event.key === 's'){
+  //     this.settings.open(SettingsComponent)
+  //   }
         
-  }
+  // }
 
 
   sendDefaultVideo(list: any){
