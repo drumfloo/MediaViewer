@@ -1,103 +1,45 @@
-default:
-  interruptible: true
-  image: node:lts-alpine
 
 stages:
-  - dependencies
-#  - quality
-  - assemble
+  - build
+  - test
   - deploy
 
-install:
-  stage: dependencies
-  script:
-    # Install dependencies
-    - npm install --prefer-offline
-  cache:
-    key:
-      files:
-        - package.json
-    paths:
-      - node_modules
+variables:
+  # Definiere die Node.js Version, die verwendet werden soll
+  NODE_VERSION: "22.5.1"
 
-#lint:
-#  stage: quality
-#  needs: ["install"]
-#  script:
-#    - npm run lint
-#  cache:
-#    key:
-#      files:
-#        - package.json
-#    paths:
-#      - node_modules
-#    policy: pull
+cache:
+  paths:
+    - node_modules/
+
+before_script:
+  # Installiere Node.js
+  - apt-get update -y
+  - apt-get install -y curl
+  - curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash -
+  - apt-get install -y nodejs
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
 
 #test:
-#  stage: quality
-#  needs: ["install"]
-#  before_script:
-#    # Download Chrome
-#    - apk add chromium
-#    - export CHROME_BIN=/usr/bin/chromium-browser
-#    - export CHROME_PATH=/usr/lib/chromium/
-#    # Download Firefox
-#    - apk add firefox-esr
-#    - export FIREFOX_BIN=/usr/bin/firefox
-#    - export FIREFOX_PATH=/usr/lib/firefox/
-#    # X Server
-#    - apk add xvfb
-#    - export DISPLAY=:99
-#    - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+#  stage: test
 #  script:
-#    - npm run test -- --browsers=Headless_Chrome --no-watch
-#  cache:
-#    key:
-#      files:
-#        - package.json
-#    paths:
-#      - node_modules
-#    policy: pull
+#    - npm run test
 
-assemble:
-  stage: assemble
-  #needs: ["test", "lint"]
-  needs: []
-  script:
-    - npm run build
-  artifacts:
-    paths:
-      - $CI_PROJECT_DIR/dist
-  cache:
-    key:
-      files:
-        - package.json
-    paths:
-      - node_modules
-    policy: pull
-
-.deploy:
+deploy:
   stage: deploy
-  variables:
-    NODE_ENV: production
-  needs: ["assemble"]
-  before_script:
-    - echo "Deploying to $CI_ENVIRONMENT_NAME"
-
-deploy-dev:
-  extends: .deploy
-  variables:
-    NODE_ENV: development
   script:
-    - echo "Deploying to $CI_ENVIRONMENT_NAME"
-    - echo "Making actions to deploy to dev"
-    - echo "Deployed to $CI_ENVIRONMENT_NAME"
+    - echo "Deployment Schritt (abhängig von deinem Deployment-Prozess)"
+  only:
+    - master
 
 deploy-staging:
-  extends: .deploy
-  rules:
-    - when: manual
-      allow_failure: true
+  extends: deploy
+  allow_failure: true
   variables:
     NODE_ENV: staging
   script:
