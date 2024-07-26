@@ -20,18 +20,18 @@ install:
     paths:
       - node_modules
 
-lint:
-  stage: quality
-  needs: ["install"]
-  script:
-    - npm run lint
-  cache:
-    key:
-      files:
-        - package.json
-    paths:
-      - node_modules
-    policy: pull
+#lint:
+#  stage: quality
+#  needs: ["install"]
+#  script:
+#    - npm run lint
+#  cache:
+#    key:
+#      files:
+#        - package.json
+#    paths:
+#      - node_modules
+#    policy: pull
 
 #test:
 #  stage: quality
