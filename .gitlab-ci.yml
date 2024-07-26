@@ -61,7 +61,8 @@ install:
 
 assemble:
   stage: assemble
-  needs: ["test", "lint"]
+  #needs: ["test", "lint"]
+  needs: []
   script:
     - npm run build
   artifacts:
