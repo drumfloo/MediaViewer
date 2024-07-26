@@ -77,7 +77,7 @@ assemble:
       - node_modules
     policy: pull
 
-# FOR A BUILD-TEST
+
 build:
   stage: build
   script:
