@@ -100,6 +100,8 @@ deploy-dev:
   script: 
     - echo "Deploying to $CI_ENVIRONMENT_NAME"
     - echo "Making actions to deploy to dev"
+    - mkdir -p /dist  # Erstelle das Deployment-Verzeichnis
+    - cp -r dist/* /dist 
     - echo "Deployed to $CI_ENVIRONMENT_NAME"
   only:
     - master
