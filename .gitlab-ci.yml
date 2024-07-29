@@ -4,7 +4,6 @@ default:
 
 stages:
   - dependencies
-#  - quality
   - assemble
   - build
   - deploy
@@ -21,69 +20,21 @@ install:
     paths:
       - node_modules
 
-#lint:
-#  stage: quality
-#  needs: ["install"]
-#  script:
-#    - npm run lint
-#  cache:
-#    key:
-#      files:
-#        - package.json
-#    paths:
-#      - node_modules
-#    policy: pull
-
-#test:
-#  stage: quality
-#  needs: ["install"]
-#  before_script:
-#    # Download Chrome
-#    - apk add chromium
-#    - export CHROME_BIN=/usr/bin/chromium-browser
-#    - export CHROME_PATH=/usr/lib/chromium/
-#    # Download Firefox
-#    - apk add firefox-esr
-#    - export FIREFOX_BIN=/usr/bin/firefox
-#    - export FIREFOX_PATH=/usr/lib/firefox/
-#    # X Server
-#    - apk add xvfb
-#    - export DISPLAY=:99
-#    - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
-#  script:
-#    - npm run test -- --browsers=Headless_Chrome --no-watch
-#  cache:
-#    key:
-#      files:
-#        - package.json
-#    paths:
-#      - node_modules
-#    policy: pull
-
 assemble:
   stage: assemble
-  #needs: ["test", "lint"]
   needs: []
   script:
     - npm run build
   artifacts:
     paths:
-      - $CI_PROJECT_DIR/dist
-  cache:
-    key:
-      files:
-        - package.json
-    paths:
-      - node_modules
-    policy: pull
-
+      - dist  # Artefakte speichern
 
 build:
   stage: build
   script:
     - npm install
     - npm run build
-    - ls -la dist
+    - ls -la dist  # Überprüfen, ob der dist Ordner erstellt wurde
 
 .deploy:
   stage: deploy
@@ -97,11 +48,129 @@ deploy-dev:
   extends: .deploy
   variables:
     NODE_ENV: development
-  script: 
+  script:
     - echo "Deploying to $CI_ENVIRONMENT_NAME"
     - echo "Making actions to deploy to dev"
-    - mkdir -p /dist  # Erstelle das Deployment-Verzeichnis
-    - cp -r dist/* /dist 
+    #- mkdir -p /path/to/deployment/directory  # Erstelle das Deployment-Verzeichnis
+    #- cp -r dist/* /path/to/deployment/directory  # Kopiere die Dateien aus dem dist Verzeichnis
     - echo "Deployed to $CI_ENVIRONMENT_NAME"
   only:
     - master
+
+
+
+
+
+
+
+
+
+
+
+# default:
+#   interruptible: true
+#   image: node:lts-alpine
+
+# stages:
+#   - dependencies
+# #  - quality
+#   - assemble
+#   - build
+#   - deploy
+
+# install:
+#   stage: dependencies
+#   script:
+#     # Install dependencies
+#     - npm install --prefer-offline
+#   cache:
+#     key:
+#       files:
+#         - package.json
+#     paths:
+#       - node_modules
+
+# #lint:
+# #  stage: quality
+# #  needs: ["install"]
+# #  script:
+# #    - npm run lint
+# #  cache:
+# #    key:
+# #      files:
+# #        - package.json
+# #    paths:
+# #      - node_modules
+# #    policy: pull
+
+# #test:
+# #  stage: quality
+# #  needs: ["install"]
+# #  before_script:
+# #    # Download Chrome
+# #    - apk add chromium
+# #    - export CHROME_BIN=/usr/bin/chromium-browser
+# #    - export CHROME_PATH=/usr/lib/chromium/
+# #    # Download Firefox
+# #    - apk add firefox-esr
+# #    - export FIREFOX_BIN=/usr/bin/firefox
+# #    - export FIREFOX_PATH=/usr/lib/firefox/
+# #    # X Server
+# #    - apk add xvfb
+# #    - export DISPLAY=:99
+# #    - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+# #  script:
+# #    - npm run test -- --browsers=Headless_Chrome --no-watch
+# #  cache:
+# #    key:
+# #      files:
+# #        - package.json
+# #    paths:
+# #      - node_modules
+# #    policy: pull
+
+# assemble:
+#   stage: assemble
+#   #needs: ["test", "lint"]
+#   needs: []
+#   script:
+#     - npm run build
+#   artifacts:
+#     paths:
+#       - $CI_PROJECT_DIR/dist
+#   cache:
+#     key:
+#       files:
+#         - package.json
+#     paths:
+#       - node_modules
+#     policy: pull
+
+
+# build:
+#   stage: build
+#   script:
+#     - npm install
+#     - npm run build
+#     - ls -la dist
+
+# .deploy:
+#   stage: deploy
+#   variables:
+#     NODE_ENV: production
+#   needs: ["assemble"]
+#   before_script:
+#     - echo "Deploying to $CI_ENVIRONMENT_NAME"
+
+# deploy-dev:
+#   extends: .deploy
+#   variables:
+#     NODE_ENV: development
+#   script: 
+#     - echo "Deploying to $CI_ENVIRONMENT_NAME"
+#     - echo "Making actions to deploy to dev"
+#     - mkdir -p /dist  # Erstelle das Deployment-Verzeichnis
+#     - cp -r dist/* /dist 
+#     - echo "Deployed to $CI_ENVIRONMENT_NAME"
+#   only:
+#     - master
