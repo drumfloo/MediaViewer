@@ -24,9 +24,9 @@ install:
 assemble:
   stage: assemble
   needs: []
-  #script:
+  script:
     #- npx ng build
-    #- npm run build
+    - npm run build
   artifacts:
     paths:
       - dist  # Artefakte speichern
@@ -36,7 +36,7 @@ build:
   script:
     - npm install
     - npm install -g @angular/cli  # Installiere Angular CLI
-    - npm run build
+    #- npm run build
     - ls -la dist  # Überprüfen, ob der dist Ordner erstellt wurde
 
 .deploy:
