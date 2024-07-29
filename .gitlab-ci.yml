@@ -4,8 +4,8 @@ default:
 
 stages:
   - dependencies
-  - build
   - assemble
+  - build
   - deploy
 
 install:
@@ -13,8 +13,7 @@ install:
   script:
     # Install dependencies
     - npm install --prefer-offline
-    # Install Angular CLI locally
-    - npm install @angular/cli
+    - npm install -g @angular/cli
   cache:
     key:
       files:
@@ -22,23 +21,29 @@ install:
     paths:
       - node_modules
 
-build:
-  stage: build
+assemble:
+  stage: assemble
+  needs: []
   script:
-    # Überprüfen, ob Angular CLI lokal installiert ist
-    - ls -la node_modules/.bin
-    # Führen Sie den Build-Befehl mit npx aus
-    - npx ng build
-    - ls -la dist  # Überprüfen, ob der dist Ordner erstellt wurde
+    #- npx ng build
+    - npm run build
   artifacts:
     paths:
       - dist  # Artefakte speichern
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm install -g @angular/cli  # Installiere Angular CLI
+    - npm run build
+    - ls -la dist  # Überprüfen, ob der dist Ordner erstellt wurde
 
 .deploy:
   stage: deploy
   variables:
     NODE_ENV: production
-  needs: ["build"]
+  needs: ["assemble"]
   before_script:
     - echo "Deploying to $CI_ENVIRONMENT_NAME"
 
@@ -54,7 +59,6 @@ deploy-dev:
     - echo "Deployed to $CI_ENVIRONMENT_NAME"
   only:
     - master
-
 
 
 
