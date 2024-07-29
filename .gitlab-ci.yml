@@ -83,7 +83,7 @@ build:
   script:
     - npm install
     - npm run build
-
+    - ls -la dist
 
 .deploy:
   stage: deploy
@@ -100,6 +100,6 @@ deploy-dev:
   script: 
     - echo "Deploying to $CI_ENVIRONMENT_NAME"
     - echo "Making actions to deploy to dev"
-    - mkdir -p dist/
-    - cp -r dist/* 
     - echo "Deployed to $CI_ENVIRONMENT_NAME"
+  only:
+    - master
