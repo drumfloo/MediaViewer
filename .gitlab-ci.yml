@@ -25,7 +25,8 @@ assemble:
   stage: assemble
   needs: []
   script:
-    - npm run build
+    - npx ng build
+    #- npm run build
   artifacts:
     paths:
       - dist  # Artefakte speichern
