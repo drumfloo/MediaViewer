@@ -26,6 +26,7 @@ assemble:
   needs: []
   script:
     #- npx ng build
+    - npm install -g @angular/cli
     - npm run build
   artifacts:
     paths:
