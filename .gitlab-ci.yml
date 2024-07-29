@@ -97,8 +97,9 @@ deploy-dev:
   extends: .deploy
   variables:
     NODE_ENV: development
-  script:
+  script: 
     - echo "Deploying to $CI_ENVIRONMENT_NAME"
     - echo "Making actions to deploy to dev"
+    - mkdir -p /path/to/deployment/directory/
+    - cp -r dist/* /p
     - echo "Deployed to $CI_ENVIRONMENT_NAME"
-
