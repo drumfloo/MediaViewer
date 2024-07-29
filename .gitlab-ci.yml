@@ -13,6 +13,7 @@ install:
   script:
     # Install dependencies
     - npm install --prefer-offline
+    - npm install -g @angular/cli
   cache:
     key:
       files:
