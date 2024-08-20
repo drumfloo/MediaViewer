@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { YoutubeService } from './youtube.service';
 import { Subject, takeUntil } from 'rxjs';
 import { ComService } from '../../services/com.service';
-import { SharedService } from 'projects/services/shared.service';
+import { SharedService } from 'projects/zam-controller/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
 import { SettingsComponent } from '../settings/settings.component';
@@ -26,7 +26,7 @@ export class GridContentComponent {
 
   public videos: any[] = [];
   private unsubscribe$: Subject<any> = new Subject();
-  public schowSettings = false;
+  // public schowSettings = true;
 
   constructor(private youTubeService: YoutubeService, protected comService: ComService, private sharedService: SharedService) {
     this.comService = comService;
