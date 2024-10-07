@@ -117,7 +117,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/zam-controller",
-            "index": "projects/zam-controller/src/index.html",
+            "index": "projects/zam-controller/src/controller_index.html",
             "main": "projects/zam-controller/src/main.ts",
             "polyfills": [
               "zone.js"
@@ -218,7 +218,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/zam-viewer",
-            "index": "projects/zam-viewer/src/index.html",
+            "index": "projects/zam-viewer/src/viewer_index.html",
             "main": "projects/zam-viewer/src/main.ts",
             "polyfills": [
               "zone.js"
