@@ -19,11 +19,7 @@ import {YouTubePlayer} from '@angular/youtube-player';
     MatCard,
     MatProgressSpinnerModule,
     YouTubePlayer
-    
-    // HttpClientModule,
-    // YouTubePlayer,
-    // Component
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

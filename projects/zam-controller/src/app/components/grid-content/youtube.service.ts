@@ -41,12 +41,6 @@ export class YoutubeService {
       this.playListId = credentials.PlayListId;
     })
 
-    // this.getCredentials().subscribe(credentials => {
-    //   this.apiKey = credentials.ApiKey;
-    //   this.playListId = credentials.plId;
-    // });
-  
-  
   }
 
 

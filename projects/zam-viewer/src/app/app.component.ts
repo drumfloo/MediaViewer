@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild, ViewRef } from '@angular/core'; 
 import { ComService } from './service/com.service';
-//import { SharedService } from 'projects/services/shared.service';
 import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({ 
@@ -21,12 +20,9 @@ export class AppComponent implements OnInit {
 
 
 
-	constructor(protected comService: ComService, /*private sharedService: SharedService*/) {
+	constructor(protected comService: ComService) {
 		this.comService = comService;
 
-		// this.sharedService.dataValue$.subscribe(subSharedService =>{
-		// 	this.subSharedService = subSharedService;
-		//   })
 	};
 	
 	
