@@ -6,7 +6,6 @@ import { ComService } from '../../services/com.service';
 import { SharedService } from 'projects/zam-controller/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialog/dialog.component';
-import { SettingsComponent } from '../settings/settings.component';
 
 @Injectable({
   providedIn: 'root'
