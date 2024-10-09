@@ -1,5 +1,5 @@
 @if (defaultVideoID) {    
-    <youtube-player (stateChange)="listenToChanges($event)" [videoId]="videoID" [width]="screenWidth" [height]="screenHeight" [playerVars]="{'controls': 0, 'autoplay': 1}"></youtube-player>
+    <youtube-player (stateChange)="listenToChanges($event)" [videoId]="videoID" [width]="screenWidth" [height]="screenHeight" [playerVars]="{'controls': 0, 'autoplay': 1, 'mute':1}"></youtube-player>
 } @else {
     Load
     <mat-spinner></mat-spinner>
