@@ -1,35 +1,10 @@
-# ZAM - Zimmer Atrium Multimedial
-Application to show videos (currently pulled from the Zimmer YouTube-channel). It fetches from a specific channel, defined in the `assets/credentials.json`.
+# MediaViewer
+Angular app to show videos from YouTube-playlists on any screensize. Thanks to WebSocket, you can add a bunch of screens by open the app in a browser. All screens will play the selected video in sync, thanks to a Controller-app, you can select the pre-loaded videos from a specified list [`assets/credentials.json`]. I'm still working on it in my spare time, there are a lot of potential in it for some other kinds of usecases. 
+
 
 ## Change API-Key and/or Channel-Id
 In case of changing the API-Kkey or playlist-Id, changes can be made here: `projects\zam-controller\src\assets\credentials.json`
 
 
 
-# ZAM
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
